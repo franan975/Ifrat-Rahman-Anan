@@ -195,7 +195,7 @@ footer .heart{color:#ff4d8d}
 .can>.cn:last-child:nth-child(odd){grid-column:1/-1}
 @media (max-width:760px){.cn.wide .chk{grid-template-columns:1fr}}
 
-.ac{display:grid;gap:12px}
+.ac{display:grid;grid-template-columns:1fr 1fr;gap:12px;align-items:start}
 .ai{background:var(--surface);border:1px solid var(--line);border-radius:16px;transition:border-color .25s,box-shadow .25s}
 .ai:hover,.ai.open{border-color:var(--p)}
 .ai.open{box-shadow:0 8px 28px rgba(124,58,237,.22)}
@@ -215,7 +215,8 @@ footer .heart{color:#ff4d8d}
 .ai-body{padding:2px 22px 20px 76px;color:var(--muted);font-size:.96rem;opacity:0;transform:translateY(-6px);transition:opacity .35s .05s,transform .35s .05s}
 .ai.open .ai-body{opacity:1;transform:none}
 .ai-body p{margin:0}
-.ai-body .chk{grid-template-columns:1fr 1fr;gap:10px 28px}
+.ai-body .chk{grid-template-columns:1fr;gap:10px}
+@media (max-width:860px){.ac{grid-template-columns:1fr}}
 @media (max-width:760px){.ai-body{padding:2px 18px 18px}.ai-body .chk{grid-template-columns:1fr}.ah{padding:14px 14px;gap:10px;font-size:1rem}.mini{font-size:.62rem;padding:2px 8px}}
 @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}}
 </style>
@@ -346,10 +347,6 @@ footer .heart{color:#ff4d8d}
   <div class="ai">
     <button class="ah" type="button" aria-expanded="false" aria-controls="ap7"><span class="ico"><svg class="i"><use href="#code"/></svg></span><span class="tt">Web Development</span><svg class="i chev"><use href="#chev"/></svg></button>
     <div class="ap" id="ap7"><div class="ai-in"><div class="ai-body"><p>Trained in web development in 2019, with many projects built along the way. I can build websites with WordPress using Elementor Pro.</p></div></div></div>
-  </div>
-  <div class="ai">
-    <button class="ah" type="button" aria-expanded="false" aria-controls="ap8"><span class="ico"><svg class="i"><use href="#pen"/></svg></span><span class="tt">Graphic Design</span><svg class="i chev"><use href="#chev"/></svg></button>
-    <div class="ap" id="ap8"><div class="ai-in"><div class="ai-body"><p>Self-taught designer. I designed cards for different companies using Adobe Photoshop, learning it on my own without any course or help.</p></div></div></div>
   </div>
   <div class="ai">
     <button class="ah" type="button" aria-expanded="false" aria-controls="ap9"><span class="ico"><svg class="i"><use href="#calc"/></svg></span><span class="tt">Accounting with QuickBooks</span><svg class="i chev"><use href="#chev"/></svg></button>
