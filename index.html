@@ -144,9 +144,9 @@ footer .heart{color:#ff4d8d}
 @keyframes laser{0%{transform:translateX(-130%) skewX(-20deg)}22%,100%{transform:translateX(330%) skewX(-20deg)}}
 
 .soc a.mail{position:relative;overflow:visible}
-.soc a.mail::after{content:attr(data-email);position:absolute;left:0;bottom:calc(100% + 12px);white-space:nowrap;padding:8px 14px;border-radius:999px;font:600 .85rem Inter,sans-serif;color:#fff;background:linear-gradient(110deg,#9b4df3,#6f38cf);box-shadow:0 6px 24px rgba(124,58,237,.6);opacity:0;transform:translateY(8px) scale(.9);transform-origin:left bottom;pointer-events:none;transition:opacity .25s,transform .25s}
-.soc a.mail::before{content:"";position:absolute;left:14px;bottom:calc(100% + 6px);width:10px;height:10px;background:#7c3aed;transform:rotate(45deg) scale(0);opacity:0;transition:opacity .25s,transform .25s;pointer-events:none}
-.soc a.mail:hover::after,.soc a.mail:focus-visible::after{opacity:1;transform:none}
+.soc a.mail::after{content:attr(data-email);position:absolute;left:calc(100% + 14px);top:50%;white-space:nowrap;padding:8px 14px;border-radius:999px;font:600 .85rem Inter,sans-serif;color:#fff;background:linear-gradient(110deg,#9b4df3,#6f38cf);box-shadow:0 6px 24px rgba(124,58,237,.6);opacity:0;transform:translate(-8px,-50%) scale(.9);transform-origin:left center;pointer-events:none;transition:opacity .25s,transform .25s}
+.soc a.mail::before{content:"";position:absolute;left:calc(100% + 9px);top:50%;width:10px;height:10px;margin-top:-5px;background:#9b4df3;transform:rotate(45deg) scale(0);opacity:0;transition:opacity .25s,transform .25s;pointer-events:none}
+.soc a.mail:hover::after,.soc a.mail:focus-visible::after{opacity:1;transform:translate(0,-50%)}
 .soc a.mail:hover::before,.soc a.mail:focus-visible::before{opacity:1;transform:rotate(45deg) scale(1)}
 @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}}
 </style>
