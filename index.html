@@ -469,7 +469,38 @@ function spy(){
   setOn(id);
 }
 addEventListener("scroll",spy,{passive:true});addEventListener("resize",spy);
-links.forEach(a=>a.addEventListener("click",()=>{setOn(a.hash.slice(1));lock=Date.now()+900;setTimeout(spy,950)}));
+const SEC=["home","about","skills","projects","experience","achievements","contact"];
+const BASE=location.pathname.replace(/\/(?:index\.html|about|skills|projects|experience|achievements|contact)?$/,"/");
+function url(id){try{history.replaceState(null,"",id==="home"?BASE:BASE+id)}catch(e){}}
+function goTo(id,push){
+  const el=document.getElementById(id);if(!el)return;
+  setOn(id);lock=Date.now()+1000;setTimeout(spy,1050);
+  el.scrollIntoView({behavior:"smooth",block:"start"});
+  try{if(location.protocol!=="file:")history[push?"pushState":"replaceState"](null,"",id==="home"?BASE:BASE+id)}catch(e){}
+}
+document.addEventListener("click",e=>{
+  const a=e.target.closest('a[href^="#"]');
+  if(!a||a.getAttribute("href").length<2)return;
+  const id=a.hash.slice(1);if(!document.getElementById(id))return;
+  e.preventDefault();goTo(id,true);
+});
+let reset=0;
+addEventListener("scroll",()=>{
+  if(Date.now()<lock||location.protocol==="file:")return;
+  clearTimeout(reset);
+  reset=setTimeout(()=>{if(location.pathname!==BASE&&location.pathname!==BASE+"index.html")url("home")},150);
+},{passive:true});
+addEventListener("popstate",()=>{
+  const id=SEC.find(x=>location.pathname===BASE+x)||"home";
+  const el=document.getElementById(id);if(el){setOn(id);lock=Date.now()+1000;el.scrollIntoView({behavior:"smooth",block:"start"})}
+});
+(function(){
+  const q=new URLSearchParams(location.search).get("s");
+  const id=SEC.includes(q)?q:SEC.find(x=>location.pathname===BASE+x);
+  if(id&&id!=="home"){lock=Date.now()+1200;setOn(id);
+    addEventListener("load",()=>{const el=document.getElementById(id);if(el)el.scrollIntoView({block:"start"});try{history.replaceState(null,"",BASE+id)}catch(e){}});
+  }else if(location.hash){try{history.replaceState(null,"",BASE)}catch(e){}}
+})();
 spy();
 
 if(!matchMedia("(prefers-reduced-motion:reduce)").matches){
