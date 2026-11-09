@@ -188,6 +188,12 @@ footer .heart{color:#ff4d8d}
 .chk li{position:relative;padding-left:26px;color:var(--muted);font-size:.93rem;line-height:1.55}
 .chk li::before{content:"";position:absolute;left:3px;top:.45em;width:7px;height:12px;border:solid var(--p-soft);border-width:0 2.5px 2.5px 0;transform:rotate(45deg) scale(.8)}
 .chk b{color:var(--ink);font-weight:600}
+
+.cn .i{display:block}
+.cn.wide{grid-column:1/-1}
+.cn.wide .chk{grid-template-columns:1fr 1fr;gap:10px 28px}
+.can>.cn:last-child:nth-child(odd){grid-column:1/-1}
+@media (max-width:760px){.cn.wide .chk{grid-template-columns:1fr}}
 @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}}
 </style>
 </head>
@@ -284,17 +290,17 @@ footer .heart{color:#ff4d8d}
   <h3 class="sub">What I <span>Can Do</span></h3>
   <div class="can">
     <div class="cn feat"><span class="badge"><svg class="i f"><use href="#star"/></svg>Top Skill</span><svg class="i f big"><use href="#in"/></svg><h4>LinkedIn Marketing</h4><p>I work as a LinkedIn marketer at Accord Tech Solutions, where I manage a client account in full. On the company's behalf, I handle the client's day-to-day LinkedIn work and make sure it is delivered professionally.</p></div>
-    <div class="cn star"><span class="badge"><svg class="i f"><use href="#star"/></svg>Top Skill</span><svg class="i"><use href="#bolt"/></svg><h4>AI Automation &amp; Agents</h4><p>I build AI agents with Claude that run LinkedIn and data work on their own, so the routine tasks happen automatically and consistently.</p>
+    <div class="cn star wide"><span class="badge"><svg class="i f"><use href="#star"/></svg>Top Skill</span><svg class="i"><use href="#bolt"/></svg><h4>AI Automation &amp; Agents</h4><p>I build AI agents with Claude that run LinkedIn and data work on their own, so the routine tasks happen automatically and consistently.</p>
       <ul class="chk">
         <li><b>Automatic data collection:</b> an agent that gathers the data I need without manual effort.</li>
         <li><b>Content writing:</b> an agent that drafts LinkedIn content.</li>
         <li><b>Auto-posting:</b> approved content is published on LinkedIn automatically.</li>
         <li><b>Auto connection requests:</b> outreach requests are sent automatically to the right people.</li>
       </ul></div>
-    <div class="cn star"><span class="badge"><svg class="i f"><use href="#star"/></svg>Top Skill</span><svg class="i"><use href="#flow"/></svg><h4>n8n Workflows</h4><p>My first automation project was built with n8n. I design step-by-step workflows that connect tools and run on their own, the same thinking behind my AI agents.</p></div>
     <div class="cn"><svg class="i"><use href="#trend"/></svg><h4>Data Analysis</h4><p>I can analyse data and turn it into clear, useful insights for business decisions.</p></div>
     <div class="cn"><svg class="i"><use href="#target"/></svg><h4>Lead Generation</h4><p>I can find and organise potential customers, building lead lists that support outreach and sales.</p></div>
     <div class="cn"><svg class="i"><use href="#palette"/></svg><h4>Canva Design</h4><p>I design with Canva and have solid hands-on experience creating clean, professional visuals.</p></div>
+    <div class="cn"><svg class="i"><use href="#flow"/></svg><h4>n8n Workflows</h4><p>My first automation project, which I built on my own initiative with n8n. I designed step-by-step workflows that connect tools and run by themselves.</p></div>
     <div class="cn"><svg class="i"><use href="#code"/></svg><h4>Web Development</h4><p>Trained in web development in 2019, with many projects built along the way. I can build websites with WordPress using Elementor Pro.</p></div>
     <div class="cn"><svg class="i"><use href="#pen"/></svg><h4>Graphic Design</h4><p>Self-taught designer. I designed cards for different companies using Adobe Photoshop, learning it on my own without any course or help.</p></div>
     <div class="cn"><svg class="i"><use href="#calc"/></svg><h4>Accounting with QuickBooks</h4><p>Certified by CodersTrust Bangladesh in 2025 to manage accounts, records and reports using QuickBooks.</p></div>
