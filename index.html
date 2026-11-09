@@ -223,6 +223,14 @@ footer .heart{color:#ff4d8d}
 .ai-body .chk{grid-template-columns:1fr;gap:10px}
 @media (max-width:860px){.ac{display:flex;flex-direction:column}.col{display:contents}.ai{order:var(--o)}}
 @media (max-width:760px){.ai-body{padding:2px 18px 18px}.ai-body .chk{grid-template-columns:1fr}.ah{padding:14px 14px;gap:10px;font-size:1rem}.mini{font-size:.62rem;padding:2px 8px}}
+@media (hover:hover){
+#skills .ai{position:relative}
+#skills .ai:hover{z-index:6}
+#skills .ai::after{content:attr(data-skills);position:absolute;left:18px;bottom:calc(100% + 14px);width:max-content;max-width:calc(100% - 36px);padding:9px 16px;border-radius:14px;font:600 .85rem/1.45 Inter,sans-serif;color:#fff;background:linear-gradient(110deg,#9b4df3,#6f38cf);box-shadow:0 6px 24px rgba(124,58,237,.6);opacity:0;transform:translateY(8px) scale(.95);transform-origin:left bottom;pointer-events:none;transition:opacity .25s,transform .25s}
+#skills .ai::before{content:"";position:absolute;left:34px;bottom:calc(100% + 8px);width:10px;height:10px;background:#8244e0;transform:rotate(45deg) scale(0);opacity:0;transition:opacity .25s,transform .25s;pointer-events:none}
+#skills .ai:hover:not(.open)::after{opacity:1;transform:none}
+#skills .ai:hover:not(.open)::before{opacity:1;transform:rotate(45deg) scale(1)}
+}
 @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}}
 </style>
 </head>
@@ -368,21 +376,21 @@ footer .heart{color:#ff4d8d}
   <h2>My <span>Skills</span></h2><i class="u"></i>
 <div class="ac">
 <div class="col">
-  <div class="ai">
+  <div class="ai" data-skills="AI Automation · AI Agent Building (Claude) · Workflow Automation (n8n)">
     <button class="ah" type="button" aria-expanded="false" aria-controls="sk1"><span class="ico"><svg class="i"><use href="#bolt"/></svg></span><span class="tt">AI &amp; Automation</span><span class="cnt">3 skills</span><svg class="i chev"><use href="#chev"/></svg></button>
     <div class="ap" id="sk1"><div class="ai-in"><div class="ai-body sk-body"><div class="sg"><div><svg class="i"><use href="#bolt"/></svg>AI Automation</div><div><svg class="i"><use href="#flow"/></svg>AI Agent Building (Claude)</div><div><svg class="i"><use href="#flow"/></svg>Workflow Automation (n8n)</div></div></div></div></div>
   </div>
-  <div class="ai">
+  <div class="ai" data-skills="Canva Design · WordPress &amp; Elementor Pro">
     <button class="ah" type="button" aria-expanded="false" aria-controls="sk3"><span class="ico"><svg class="i"><use href="#palette"/></svg></span><span class="tt">Design &amp; Web</span><span class="cnt">2 skills</span><svg class="i chev"><use href="#chev"/></svg></button>
     <div class="ap" id="sk3"><div class="ai-in"><div class="ai-body sk-body"><div class="sg"><div><svg class="i"><use href="#palette"/></svg>Canva Design</div><div><svg class="i"><use href="#code"/></svg>WordPress &amp; Elementor Pro</div></div></div></div></div>
   </div>
 </div>
 <div class="col">
-  <div class="ai">
+  <div class="ai" data-skills="LinkedIn Marketing · Lead Generation · Content Writing">
     <button class="ah" type="button" aria-expanded="false" aria-controls="sk2"><span class="ico"><svg class="i"><use href="#target"/></svg></span><span class="tt">Marketing &amp; Outreach</span><span class="cnt">3 skills</span><svg class="i chev"><use href="#chev"/></svg></button>
     <div class="ap" id="sk2"><div class="ai-in"><div class="ai-body sk-body"><div class="sg"><div><svg class="i f"><use href="#in"/></svg>LinkedIn Marketing</div><div><svg class="i"><use href="#target"/></svg>Lead Generation</div><div><svg class="i"><use href="#pen"/></svg>Content Writing</div></div></div></div></div>
   </div>
-  <div class="ai">
+  <div class="ai" data-skills="Business Analytics · Data Analysis · QuickBooks Accounting · Microsoft Office">
     <button class="ah" type="button" aria-expanded="false" aria-controls="sk4"><span class="ico"><svg class="i"><use href="#chart"/></svg></span><span class="tt">Business &amp; Finance</span><span class="cnt">4 skills</span><svg class="i chev"><use href="#chev"/></svg></button>
     <div class="ap" id="sk4"><div class="ai-in"><div class="ai-body sk-body"><div class="sg"><div><svg class="i"><use href="#chart"/></svg>Business Analytics</div><div><svg class="i"><use href="#trend"/></svg>Data Analysis</div><div><svg class="i"><use href="#calc"/></svg>QuickBooks Accounting</div><div><svg class="i"><use href="#grid"/></svg>Microsoft Office</div></div></div></div></div>
   </div>
