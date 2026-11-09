@@ -134,6 +134,14 @@ footer .heart{color:#ff4d8d}
 .btn:hover{transform:translateY(-2px);box-shadow:0 6px 22px rgba(124,58,237,.5)}
 .soc a:hover{transform:translateY(-3px) scale(1.08)}
 .pic{transition:transform .3s,box-shadow .3s}.pic:hover{transform:scale(1.04) rotate(-2deg);box-shadow:0 0 40px rgba(164,92,255,.7)}
+
+.links a{position:relative;overflow:hidden;isolation:isolate}
+.links a::after{content:"";position:absolute;top:0;bottom:0;left:0;width:45%;z-index:-1;pointer-events:none;background:linear-gradient(100deg,transparent,rgba(214,176,255,.75),rgba(255,255,255,.9),rgba(214,176,255,.75),transparent);filter:blur(2px);transform:translateX(-130%) skewX(-20deg);animation:laser 5s ease-in-out infinite}
+.links a.on::after{background:linear-gradient(100deg,transparent,rgba(255,255,255,.55),transparent)}
+.links a:nth-child(1)::after{animation-delay:0s}.links a:nth-child(2)::after{animation-delay:.25s}.links a:nth-child(3)::after{animation-delay:.5s}.links a:nth-child(4)::after{animation-delay:.75s}.links a:nth-child(5)::after{animation-delay:1s}.links a:nth-child(6)::after{animation-delay:1.25s}.links a:nth-child(7)::after{animation-delay:1.5s}
+.links a:hover{background:rgba(164,92,255,.18);box-shadow:0 0 16px rgba(164,92,255,.45)}
+.links a.on:hover{background:linear-gradient(110deg,#9b4df3,#6f38cf)}
+@keyframes laser{0%{transform:translateX(-130%) skewX(-20deg)}22%,100%{transform:translateX(330%) skewX(-20deg)}}
 @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}}
 </style>
 </head>
