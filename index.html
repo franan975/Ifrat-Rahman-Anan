@@ -142,6 +142,12 @@ footer .heart{color:#ff4d8d}
 .links a:hover{background:rgba(164,92,255,.18);box-shadow:0 0 16px rgba(164,92,255,.45)}
 .links a.on:hover{background:linear-gradient(110deg,#9b4df3,#6f38cf)}
 @keyframes laser{0%{transform:translateX(-130%) skewX(-20deg)}22%,100%{transform:translateX(330%) skewX(-20deg)}}
+
+.soc a.mail{position:relative;overflow:visible}
+.soc a.mail::after{content:attr(data-email);position:absolute;left:0;bottom:calc(100% + 12px);white-space:nowrap;padding:8px 14px;border-radius:999px;font:600 .85rem Inter,sans-serif;color:#fff;background:linear-gradient(110deg,#9b4df3,#6f38cf);box-shadow:0 6px 24px rgba(124,58,237,.6);opacity:0;transform:translateY(8px) scale(.9);transform-origin:left bottom;pointer-events:none;transition:opacity .25s,transform .25s}
+.soc a.mail::before{content:"";position:absolute;left:14px;bottom:calc(100% + 6px);width:10px;height:10px;background:#7c3aed;transform:rotate(45deg) scale(0);opacity:0;transition:opacity .25s,transform .25s;pointer-events:none}
+.soc a.mail:hover::after,.soc a.mail:focus-visible::after{opacity:1;transform:none}
+.soc a.mail:hover::before,.soc a.mail:focus-visible::before{opacity:1;transform:rotate(45deg) scale(1)}
 @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}}
 </style>
 </head>
@@ -193,7 +199,7 @@ footer .heart{color:#ff4d8d}
       <div class="soc">
         <a href="https://www.linkedin.com/in/anan-rahman-791012214/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg class="i f"><use href="#in"/></svg></a>
         <a href="#" aria-label="GitHub"><svg class="i f"><use href="#gh"/></svg></a>
-        <a href="mailto:your-email@example.com" aria-label="Email"><svg class="i"><use href="#mail"/></svg></a>
+        <a class="mail" href="mailto:franan975@gmail.com" data-email="franan975@gmail.com" aria-label="Email: franan975@gmail.com" title="franan975@gmail.com"><svg class="i"><use href="#mail"/></svg></a>
       </div>
     </div>
     <div class="stage">
@@ -250,11 +256,11 @@ footer .heart{color:#ff4d8d}
   <div id="contact" class="sec">
     <h2>Get In <span>Touch</span></h2><i class="u"></i>
     <p>Feel free to reach out to me for any collaboration or just a friendly chat!</p>
-    <a class="btn fill sm" href="mailto:your-email@example.com">Say Hello <svg class="i"><use href="#arr"/></svg></a>
+    <a class="btn fill sm" href="mailto:franan975@gmail.com">Say Hello <svg class="i"><use href="#arr"/></svg></a>
     <div class="soc">
       <a href="https://www.linkedin.com/in/anan-rahman-791012214/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg class="i f"><use href="#in"/></svg></a>
       <a href="#" aria-label="GitHub"><svg class="i f"><use href="#gh"/></svg></a>
-      <a href="mailto:your-email@example.com" aria-label="Email"><svg class="i"><use href="#mail"/></svg></a>
+      <a class="mail" href="mailto:franan975@gmail.com" data-email="franan975@gmail.com" aria-label="Email: franan975@gmail.com" title="franan975@gmail.com"><svg class="i"><use href="#mail"/></svg></a>
     </div>
   </div>
 </div></section>
