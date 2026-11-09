@@ -170,7 +170,10 @@ footer .heart{color:#ff4d8d}
 .cn:hover{border-color:var(--p);transform:translateY(-4px);box-shadow:0 10px 30px rgba(124,58,237,.25)}
 .cn .i{width:1.7rem;height:1.7rem;color:var(--p-soft);margin-bottom:10px}
 .cn h4{margin:0 0 6px;font-size:1.1rem}.cn p{margin:0;color:var(--muted);font-size:.95rem}
-#skills .sg{max-width:760px}
+#skills .sg{grid-template-columns:repeat(4,1fr)}
+.sk{font-size:.82rem;letter-spacing:.12em;text-transform:uppercase;color:var(--p-soft);font-weight:700;margin:28px 0 12px}
+@media (max-width:980px){#skills .sg{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:520px){#skills .sg{grid-template-columns:1fr}}
 @media (max-width:760px){.ab-top{grid-template-columns:1fr;gap:28px;text-align:left}.ab-top .pic{max-width:220px}.facts,.can{grid-template-columns:1fr}}
 
 .cn.feat{grid-column:1/-1;position:relative;border-color:var(--p);background:linear-gradient(135deg,#1d1433,var(--surface) 70%);box-shadow:0 0 34px rgba(124,58,237,.35);padding:28px 28px 28px 110px;overflow:hidden}
@@ -362,14 +365,39 @@ footer .heart{color:#ff4d8d}
 
 <section class="s" id="skills"><div class="c">
   <h2>My <span>Skills</span></h2><i class="u"></i>
+  <h3 class="sk">AI &amp; Automation</h3>
+  <div class="sg">
+      <div><svg class="i"><use href="#bolt"/></svg>AI Automation</div>
+      <div><svg class="i"><use href="#flow"/></svg>AI Agent Building (Claude)</div>
+      <div><svg class="i"><use href="#flow"/></svg>Workflow Automation (n8n)</div>
+  </div>
+  <h3 class="sk">Marketing &amp; Outreach</h3>
+  <div class="sg">
+      <div><svg class="i f"><use href="#in"/></svg>LinkedIn Marketing</div>
+      <div><svg class="i"><use href="#target"/></svg>Lead Generation</div>
+      <div><svg class="i"><use href="#pen"/></svg>Content Writing</div>
+      <div><svg class="i"><use href="#users"/></svg>Client Handling</div>
+  </div>
+  <h3 class="sk">Design &amp; Web</h3>
+  <div class="sg">
+      <div><svg class="i"><use href="#palette"/></svg>Canva Design</div>
+      <div><svg class="i"><use href="#palette"/></svg>Adobe Photoshop</div>
+      <div><svg class="i"><use href="#code"/></svg>WordPress &amp; Elementor Pro</div>
+      <div><svg class="i"><use href="#code"/></svg>Web Development</div>
+  </div>
+  <h3 class="sk">Business &amp; Finance</h3>
   <div class="sg">
       <div><svg class="i"><use href="#chart"/></svg>Business Analytics</div>
+      <div><svg class="i"><use href="#trend"/></svg>Data Analysis</div>
+      <div><svg class="i"><use href="#calc"/></svg>QuickBooks Accounting</div>
       <div><svg class="i"><use href="#grid"/></svg>Microsoft Office</div>
+  </div>
+  <h3 class="sk">Core Strengths</h3>
+  <div class="sg">
       <div><svg class="i"><use href="#chat"/></svg>Communication</div>
       <div><svg class="i"><use href="#bulb"/></svg>Problem Solving</div>
-      <div><svg class="i"><use href="#trend"/></svg>Data Analysis</div>
       <div><svg class="i"><use href="#users"/></svg>Teamwork</div>
-    </div>
+  </div>
 </div></section>
 
 <section class="s" id="projects"><div class="c proj">
