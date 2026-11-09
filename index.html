@@ -235,6 +235,17 @@ footer .heart{color:#ff4d8d}
 #skills .ai:hover:not(.open)::after{opacity:1;transform:none}
 #skills .ai:hover:not(.open)::before{opacity:1;transform:rotate(45deg) scale(1)}
 }
+.hw{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:44px 0 0}
+.hwc,.fl{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:24px 26px;transition:border-color .25s}
+.hwc:hover,.fl:hover{border-color:var(--p)}
+.hwc h3,.fl h3{font-size:1.25rem;margin-bottom:12px}.hwc h3 span,.fl h3 span{color:var(--p)}
+.hwc p,.fl p{color:var(--muted);font-size:.96rem;margin:0 0 10px}.hwc p:last-child,.fl p{margin-bottom:0}
+.hwc .chk b{color:var(--ink)}
+.fl{margin-top:16px;display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap}
+.fl>div:first-child{flex:1 1 360px}
+.plat{display:flex;gap:10px}
+.plat span{padding:9px 20px;border-radius:999px;border:1.5px solid var(--p);font-weight:700;font-size:.92rem;background:rgba(124,58,237,.14)}
+@media (max-width:760px){.hw{grid-template-columns:1fr}}
 @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}}
 </style>
 </head>
@@ -310,8 +321,33 @@ footer .heart{color:#ff4d8d}
       <h2>About <span>Me</span></h2><i class="u"></i>
       <p class="lead">I am Anan Rahman, a BBA student at Bangladesh University of Business &amp; Technology (BUBT) with a strong interest in business, technology and problem solving.</p>
       <p>I was born in Mirpur, Dhaka, Bangladesh, and my ancestral home is in Satkhira. I enjoy learning new things and turning them into real work, from automating everyday business tasks with AI to building websites and keeping accounts in order. My goal is to build a successful career and make a positive impact.</p>
+      <p>I help startups, agencies and business owners generate accurate B2B leads and improve their outreach results through targeted research and LinkedIn-based prospecting.</p>
       <a class="btn sm" href="#contact">Get In Touch <svg class="i"><use href="#arr"/></svg></a>
     </div>
+  </div>
+
+  <div class="hw">
+    <div class="hwc">
+      <h3>How I <span>Help</span></h3>
+      <ul class="chk">
+        <li><b>B2B Lead Generation &amp; Prospect Research</b></li>
+        <li><b>LinkedIn-Based Prospect Sourcing</b></li>
+        <li><b>Targeted Email &amp; Contact List Building</b></li>
+        <li><b>LinkedIn Profile Optimization</b> for better visibility</li>
+        <li><b>Canva-Based Marketing &amp; Social Media Designs</b></li>
+      </ul>
+    </div>
+    <div class="hwc">
+      <h3>My <span>Approach</span></h3>
+      <p>Many businesses struggle with lead generation not because their product is weak, but because they are reaching the wrong audience. My focus is to identify the right prospects, organise clean data, and support outreach that creates real business opportunities.</p>
+      <p>I prioritise accuracy, relevance and usability. Instead of delivering large volumes of random contacts, I focus on verified data and well-researched prospects.</p>
+    </div>
+  </div>
+
+  <div class="fl">
+    <div><h3>Freelance <span>Experience</span></h3>
+    <p>I work with clients on Upwork and Fiverr, delivering reliable lead generation and research support with clear communication and consistent turnaround times.</p></div>
+    <div class="plat"><span>Upwork</span><span>Fiverr</span></div>
   </div>
 
   <div class="facts">
