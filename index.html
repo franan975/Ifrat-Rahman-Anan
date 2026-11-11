@@ -290,6 +290,23 @@ footer .heart{color:#ff4d8d}
 .tv small{display:block;color:var(--p-soft);margin:3px 0 2px}
 .tv p{margin:8px 0 0;color:var(--muted);font-size:.95rem}
 @media (max-width:820px){.tlv{grid-template-columns:1fr;padding-left:34px;row-gap:20px}.tlv::before{left:8px;margin-left:0}.tv:nth-child(odd),.tv:nth-child(even){grid-column:1;text-align:left}.tv:nth-child(odd)::after,.tv:nth-child(even)::after{left:-34px;right:auto}}
+.three{grid-template-columns:1fr}
+.three>div{padding:0}
+.ticker{padding:0!important;background:linear-gradient(90deg,#150f24,#0d0b15);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.tkw{display:flex;align-items:center;gap:22px;height:64px}
+.tkl{flex:none;display:flex;align-items:center;gap:8px;font-weight:800;font-size:1rem;white-space:nowrap}
+.tkl .i{color:#ffcb47}.tkl span{color:var(--p)}
+.tkv{flex:1;min-width:0;overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent)}
+.tkt{display:flex;width:max-content;animation:tick 38s linear infinite}
+.tkv:hover .tkt{animation-play-state:paused}
+.tkg{display:flex;flex:none}
+.tk{display:inline-flex;align-items:center;gap:10px;padding:0 34px 0 0;margin-right:34px;white-space:nowrap;font-size:.95rem;color:var(--muted);position:relative}
+.tk::after{content:"";position:absolute;right:0;top:50%;width:6px;height:6px;margin-top:-3px;border-radius:50%;background:var(--p)}
+.tk .i{color:#ffcb47}
+.tk b{color:var(--ink);font-weight:700;margin-right:2px}
+@keyframes tick{to{transform:translateX(-50%)}}
+@media (max-width:640px){.tkw{gap:12px;height:56px}.tkl{font-size:.85rem}.tkl .i{display:none}}
+@media (prefers-reduced-motion:reduce){.tkv{overflow-x:auto}.tkg[aria-hidden]{display:none}}
 @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}}
 </style>
 </head>
@@ -496,14 +513,12 @@ footer .heart{color:#ff4d8d}
     <div class="tl"><span class="ic"><svg class="i f"><use href="#in"/></svg></span><b>LinkedIn Marketer – Accord Tech Solutions</b><small>Present</small><p>Managing a client account in full on behalf of the company.</p></div>
     <div class="tl"><span class="ic"><svg class="i"><use href="#cap"/></svg></span><b>BBA Student – BUBT</b><small>2024 – Present</small><p>Studying BBA and building skills for a better future.</p></div>
   </div>
-  <div id="achievements">
-    <h2>My <span>Achievements</span></h2>
-    <div class="ach"><svg class="i"><use href="#star"/></svg><div><b>Employee of the Month</b><p>Awarded at my office, December 2024.</p></div></div>
-    <div class="ach"><svg class="i"><use href="#cup"/></svg><div><b>QuickBooks Certificate</b><p>Accounting with QuickBooks from CodersTrust Bangladesh, 2025.</p></div></div>
-    <div class="ach"><svg class="i"><use href="#cup"/></svg><div><b>Academic Excellence</b><p>Maintaining academic progress.</p></div></div>
-    <div class="ach"><svg class="i"><use href="#star"/></svg><div><b>Active Learner</b><p>Continuously learning new skills.</p></div></div>
-  </div>
 </div></section>
+<section class="s ticker" id="achievements"><div class="c tkw">
+  <div class="tkl"><svg class="i f"><use href="#star"/></svg>My <span>Achievements</span></div>
+  <div class="tkv"><div class="tkt"><div class="tkg"><span class="tk"><svg class="i f"><use href="#star"/></svg><b>Employee of the Month</b>Awarded at my office, December 2024</span><span class="tk"><svg class="i f"><use href="#cup"/></svg><b>QuickBooks Certificate</b>Accounting with QuickBooks from CodersTrust Bangladesh, 2025</span><span class="tk"><svg class="i f"><use href="#cup"/></svg><b>Academic Excellence</b>Maintaining academic progress</span><span class="tk"><svg class="i f"><use href="#star"/></svg><b>Active Learner</b>Continuously learning new skills</span></div><div class="tkg" aria-hidden="true"><span class="tk"><svg class="i f"><use href="#star"/></svg><b>Employee of the Month</b>Awarded at my office, December 2024</span><span class="tk"><svg class="i f"><use href="#cup"/></svg><b>QuickBooks Certificate</b>Accounting with QuickBooks from CodersTrust Bangladesh, 2025</span><span class="tk"><svg class="i f"><use href="#cup"/></svg><b>Academic Excellence</b>Maintaining academic progress</span><span class="tk"><svg class="i f"><use href="#star"/></svg><b>Active Learner</b>Continuously learning new skills</span></div><div class="tkg" aria-hidden="true"><span class="tk"><svg class="i f"><use href="#star"/></svg><b>Employee of the Month</b>Awarded at my office, December 2024</span><span class="tk"><svg class="i f"><use href="#cup"/></svg><b>QuickBooks Certificate</b>Accounting with QuickBooks from CodersTrust Bangladesh, 2025</span><span class="tk"><svg class="i f"><use href="#cup"/></svg><b>Academic Excellence</b>Maintaining academic progress</span><span class="tk"><svg class="i f"><use href="#star"/></svg><b>Active Learner</b>Continuously learning new skills</span></div><div class="tkg" aria-hidden="true"><span class="tk"><svg class="i f"><use href="#star"/></svg><b>Employee of the Month</b>Awarded at my office, December 2024</span><span class="tk"><svg class="i f"><use href="#cup"/></svg><b>QuickBooks Certificate</b>Accounting with QuickBooks from CodersTrust Bangladesh, 2025</span><span class="tk"><svg class="i f"><use href="#cup"/></svg><b>Academic Excellence</b>Maintaining academic progress</span><span class="tk"><svg class="i f"><use href="#star"/></svg><b>Active Learner</b>Continuously learning new skills</span></div></div></div>
+</div></section>
+
 <section class="s" id="contact"><div class="c cgrid">
   <div class="cinfo">
     <h2>Get In <span>Touch</span></h2><i class="u"></i>
@@ -541,9 +556,7 @@ const m=document.getElementById("menu"),L=document.getElementById("links");
 m.onclick=()=>{const o=L.classList.toggle("open");m.setAttribute("aria-expanded",o)};
 L.addEventListener("click",e=>{if(e.target.tagName==="A"){L.classList.remove("open");m.setAttribute("aria-expanded",false)}});
 const links=[...L.querySelectorAll("a")];
-const secs=["home","about","journey","skills","projects"].map(id=>document.getElementById(id));
-const three=document.getElementById("experience").closest("section");
-const contactSec=document.getElementById("contact");
+const secs=["home","about","journey","skills","projects","experience","achievements","contact"].map(id=>document.getElementById(id));
 let lock=0;
 const setOn=id=>links.forEach(a=>a.classList.toggle("on",a.hash==="#"+id));
 function spy(){
@@ -552,9 +565,7 @@ function spy(){
   const atBottom=scrollY+vh>=document.documentElement.scrollHeight-6;
   let id="home";
   for(const el of secs){if(el.getBoundingClientRect().top<=line)id=el.id}
-  const r=three.getBoundingClientRect();
-  if(r.top<=line)id=(line-r.top)/r.height<.5?"experience":"achievements";
-  if(contactSec.getBoundingClientRect().top<=line||atBottom)id="contact";
+  if(atBottom)id="contact";
   setOn(id);
 }
 addEventListener("scroll",spy,{passive:true});addEventListener("resize",spy);
