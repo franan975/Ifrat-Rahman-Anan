@@ -246,6 +246,23 @@ footer .heart{color:#ff4d8d}
 .plat{display:flex;gap:10px}
 .plat span{padding:9px 20px;border-radius:999px;border:1.5px solid var(--p);font-weight:700;font-size:.92rem;background:rgba(124,58,237,.14)}
 @media (max-width:760px){.hw{grid-template-columns:1fr}}
+.three{grid-template-columns:1fr 1fr}
+.cgrid{display:grid;grid-template-columns:1fr 1.1fr;gap:56px;align-items:start}
+.cinfo p{color:var(--muted)}
+.cf{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:26px;display:grid;gap:16px}
+.cf .r2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.cf label{display:grid;gap:6px;font-size:.85rem;font-weight:600;color:var(--muted)}
+.cf input,.cf textarea{font:400 .98rem Inter,sans-serif;color:var(--ink);background:#0d0b15;border:1.5px solid var(--line);border-radius:12px;padding:12px 14px;width:100%;transition:border-color .2s,box-shadow .2s}
+.cf textarea{resize:vertical;min-height:120px}
+.cf input::placeholder,.cf textarea::placeholder{color:#6f6785}
+.cf input:focus,.cf textarea:focus{outline:none;border-color:var(--p);box-shadow:0 0 0 3px rgba(164,92,255,.25)}
+.cf input.bad,.cf textarea.bad{border-color:#ff6b81}
+.cf .btn{justify-self:start;border:0}
+.cf .btn[disabled]{opacity:.6;cursor:wait}
+.cfs{margin:0;font-size:.92rem;min-height:1.4em}
+.cfs.ok{color:#5ee0a0}.cfs.err{color:#ff8da0}
+@media (max-width:980px){.cgrid{grid-template-columns:1fr;gap:32px}}
+@media (max-width:520px){.cf .r2{grid-template-columns:1fr}}
 @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}}
 </style>
 </head>
@@ -457,7 +474,9 @@ footer .heart{color:#ff4d8d}
     <div class="ach"><svg class="i"><use href="#cup"/></svg><div><b>Academic Excellence</b><p>Maintaining academic progress.</p></div></div>
     <div class="ach"><svg class="i"><use href="#star"/></svg><div><b>Active Learner</b><p>Continuously learning new skills.</p></div></div>
   </div>
-  <div id="contact" class="sec">
+</div></section>
+<section class="s" id="contact"><div class="c cgrid">
+  <div class="cinfo">
     <h2>Get In <span>Touch</span></h2><i class="u"></i>
     <p>Feel free to reach out to me for any collaboration or just a friendly chat!</p>
     <a class="btn fill sm" href="mailto:franan975@gmail.com">Say Hello <svg class="i"><use href="#arr"/></svg></a>
@@ -467,6 +486,17 @@ footer .heart{color:#ff4d8d}
       <a class="mail" href="https://mail.google.com/mail/?view=cm&fs=1&to=franan975@gmail.com" target="_blank" rel="noopener" data-email="franan975@gmail.com" aria-label="Email: franan975@gmail.com" title="franan975@gmail.com"><svg class="i"><use href="#mail"/></svg></a>
     </div>
   </div>
+  <form class="cf" id="cf" novalidate>
+    <div class="r2">
+      <label>First name<input name="first_name" type="text" autocomplete="given-name" required></label>
+      <label>Last name<input name="last_name" type="text" autocomplete="family-name" required></label>
+    </div>
+    <label>Your email<input name="email" type="email" autocomplete="email" required placeholder="so I can reply to you"></label>
+    <label>Message<textarea name="message" rows="5" required placeholder="How can I help you?"></textarea></label>
+    <input type="text" name="_honey" tabindex="-1" autocomplete="off" style="display:none">
+    <button class="btn fill" type="submit" id="cfb">Send Message <svg class="i"><use href="#send"/></svg></button>
+    <p class="cfs" id="cfs" role="status" aria-live="polite"></p>
+  </form>
 </div></section>
 </main>
 
@@ -484,20 +514,18 @@ L.addEventListener("click",e=>{if(e.target.tagName==="A"){L.classList.remove("op
 const links=[...L.querySelectorAll("a")];
 const secs=["home","about","skills","projects"].map(id=>document.getElementById(id));
 const three=document.getElementById("experience").closest("section");
+const contactSec=document.getElementById("contact");
 let lock=0;
 const setOn=id=>links.forEach(a=>a.classList.toggle("on",a.hash==="#"+id));
 function spy(){
   if(Date.now()<lock)return;
   const vh=innerHeight,line=vh*.4;
   const atBottom=scrollY+vh>=document.documentElement.scrollHeight-6;
-  const r=three.getBoundingClientRect();
   let id="home";
-  if(r.top<=line){
-    const p=(line-r.top)/r.height;
-    id=atBottom?"contact":(p<.45?"experience":"achievements");
-  }else{
-    for(const el of secs){if(el.getBoundingClientRect().top<=line)id=el.id}
-  }
+  for(const el of secs){if(el.getBoundingClientRect().top<=line)id=el.id}
+  const r=three.getBoundingClientRect();
+  if(r.top<=line)id=(line-r.top)/r.height<.5?"experience":"achievements";
+  if(contactSec.getBoundingClientRect().top<=line||atBottom)id="contact";
   setOn(id);
 }
 addEventListener("scroll",spy,{passive:true});addEventListener("resize",spy);
@@ -535,6 +563,26 @@ addEventListener("popstate",()=>{
 })();
 spy();
 
+
+const cf=document.getElementById("cf");
+if(cf){cf.addEventListener("submit",async e=>{
+  e.preventDefault();
+  const st=document.getElementById("cfs"),btn=document.getElementById("cfb"),f=new FormData(cf);
+  st.className="cfs";st.textContent="";
+  let ok=true;
+  cf.querySelectorAll("input[required],textarea[required]").forEach(i=>{const bad=!i.value.trim()||(i.type==="email"&&!/^\S+@\S+\.\S+$/.test(i.value));i.classList.toggle("bad",bad);if(bad)ok=false});
+  if(!ok){st.className="cfs err";st.textContent="Please fill in all fields with a valid email.";return}
+  if(f.get("_honey"))return;
+  btn.disabled=true;st.textContent="Sending...";
+  try{
+    const r=await fetch("https://formsubmit.co/ajax/franan975@gmail.com",{method:"POST",headers:{"Content-Type":"application/json",Accept:"application/json"},body:JSON.stringify({name:f.get("first_name")+" "+f.get("last_name"),first_name:f.get("first_name"),last_name:f.get("last_name"),email:f.get("email"),message:f.get("message"),_subject:"New message from your portfolio website",_replyto:f.get("email"),_template:"table"})});
+    const d=await r.json();
+    if(r.ok&&String(d.success)==="true"){cf.reset();st.className="cfs ok";st.textContent="Thank you! Your message has been sent. I will get back to you soon."}
+    else throw 0;
+  }catch(x){st.className="cfs err";st.textContent="Sorry, the message could not be sent. Please email me at franan975@gmail.com."}
+  btn.disabled=false;
+});
+cf.addEventListener("input",e=>e.target.classList.remove("bad"));}
 if(!matchMedia("(prefers-reduced-motion:reduce)").matches){
 const rv=document.querySelectorAll("section.s .c > *, .card, .three > div");
 const ro=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){const t=e.target;t.classList.add("in");ro.unobserve(t);setTimeout(()=>{t.classList.remove("rv","in");t.style.transitionDelay=""},1100)}}),{threshold:.12});
