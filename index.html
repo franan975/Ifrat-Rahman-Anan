@@ -557,7 +557,7 @@ m.onclick=()=>{const o=L.classList.toggle("open");m.setAttribute("aria-expanded"
 L.addEventListener("click",e=>{if(e.target.tagName==="A"){L.classList.remove("open");m.setAttribute("aria-expanded",false)}});
 const links=[...L.querySelectorAll("a")];
 const secs=["home","about","journey","skills","projects","experience","achievements","contact"].map(id=>document.getElementById(id));
-let lock=0;
+let lock=0,cur="";
 const setOn=id=>links.forEach(a=>a.classList.toggle("on",a.hash==="#"+id));
 function spy(){
   if(Date.now()<lock)return;
@@ -567,6 +567,7 @@ function spy(){
   for(const el of secs){if(el.getBoundingClientRect().top<=line)id=el.id}
   if(atBottom)id="contact";
   setOn(id);
+  if(id!==cur){cur=id;if(location.protocol!=="file:")url(id)}
 }
 addEventListener("scroll",spy,{passive:true});addEventListener("resize",spy);
 const SEC=["home","about","journey","skills","projects","experience","achievements","contact"];
@@ -574,7 +575,7 @@ const BASE=location.pathname.replace(/\/(?:index\.html|about|journey|skills|proj
 function url(id){try{history.replaceState(null,"",id==="home"?BASE:BASE+id)}catch(e){}}
 function goTo(id,push){
   const el=document.getElementById(id);if(!el)return;
-  setOn(id);lock=Date.now()+1000;setTimeout(spy,1050);
+  setOn(id);cur=id;lock=Date.now()+1000;setTimeout(spy,1050);
   el.scrollIntoView({behavior:"smooth",block:"start"});
   try{if(location.protocol!=="file:")history[push?"pushState":"replaceState"](null,"",id==="home"?BASE:BASE+id)}catch(e){}
 }
@@ -584,12 +585,6 @@ document.addEventListener("click",e=>{
   const id=a.hash.slice(1);if(!document.getElementById(id))return;
   e.preventDefault();goTo(id,true);
 });
-let reset=0;
-addEventListener("scroll",()=>{
-  if(Date.now()<lock||location.protocol==="file:")return;
-  clearTimeout(reset);
-  reset=setTimeout(()=>{if(location.pathname!==BASE&&location.pathname!==BASE+"index.html")url("home")},150);
-},{passive:true});
 addEventListener("popstate",()=>{
   const id=SEC.find(x=>location.pathname===BASE+x)||"home";
   const el=document.getElementById(id);if(el){setOn(id);lock=Date.now()+1000;el.scrollIntoView({behavior:"smooth",block:"start"})}
